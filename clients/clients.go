@@ -6,15 +6,15 @@ import (
 	"encoding/hex"
 	"fmt"
 	"io"
-	"io/ioutil"
 	"net/http"
+	"os"
 )
 
 const serverURL = "http://localhost:8080"
 
 func AddFiles(files []string) {
 	for _, file := range files {
-		content, err := ioutil.ReadFile(file)
+		content, err := os.ReadFile(file)
 		if err != nil {
 			fmt.Printf("Error reading file %s: %v\n", file, err)
 			continue
