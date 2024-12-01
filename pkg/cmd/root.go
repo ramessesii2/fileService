@@ -4,8 +4,10 @@ Copyright © 2024 NAME HERE <EMAIL ADDRESS>
 package cmd
 
 import (
+	"fmt"
 	"os"
 
+	handlefile "github.com/infernus01/fileService/pkg/cmd/handleFile"
 	"github.com/spf13/cobra"
 )
 
@@ -22,7 +24,7 @@ to quickly create a Cobra application.`,
 	// Uncomment the following line if your bare application
 	// has an action associated with it:
 	Run: func(cmd *cobra.Command, args []string) {
-		clients.ListFiles()
+		fmt.Print("Use list subcommand to list files")
 	},
 }
 
@@ -45,4 +47,7 @@ func init() {
 	// Cobra also supports local flags, which will only run
 	// when this action is called directly.
 	rootCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
+	rootCmd.AddCommand(
+		handlefile.ListFiles(),
+	)
 }
